@@ -16,10 +16,8 @@ import javax.validation.constraints.Size;
 public class Estudiante {
 	
 	@Id
-	//@GeneratedValue(generator="estudiante_id_estudiante_seq", strategy=GenerationType.AUTO)
-	//@SequenceGenerator(name="estudiante_id_estudiante_seq",sequenceName="public.estudiante_id_estudiante_seq")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_estudiante")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigoEstudiante;
 	
 	@Size(message="El campo no debe contener mas de 30 caractares", max=30)
