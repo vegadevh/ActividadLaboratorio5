@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style/main.css" th:href="@{/style/main.css}" type="text/css">
     <title>Lista de estudiantes</title>
 </head>
 <body>
@@ -24,22 +25,19 @@
         </th:block>
     </table>
     <br>
-    <form th:action="@{/mostrarEstudiante}" method="POST">
-        <label>Buscar por codigo de estudiante: </label>
+    <form th:action="@{/busqueda}" method="POST">
+        <label>Ingresar codigo de estudiante: </label>
         <input type="number" name="codigo">
-        <br>
-        <input type="submit" value="Buscar">
+        <label> Para: </label>
+        <button type="submit" name="action" value="borrar"></button>
+        <button type="submit" name="action" value="actualizar"></button>
+        <button type="submit" name="action" value="buscar"></button>
     </form>
+    
     <br>
     <form th:action="@{/insertarEstudiante}">
         <input type="submit" value="Insertar nuevo estudiante">
     </form>
     <br>
-    <form th:action="@{/borrarEstudiante}" method="POST">
-        <label>Borrar estudiante por codigo: </label>
-        <input type="number" name="codigo">
-        <br>
-        <input type="submit" value="Borrar">
-    </form>
 </body>
 </html>

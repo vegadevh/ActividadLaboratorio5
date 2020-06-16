@@ -40,7 +40,7 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/mostrarEstudiante", method=RequestMethod.POST)
+	@RequestMapping(value="/busqueda", params="action=buscar")
 	public ModelAndView findOne(@RequestParam(value="codigo") int id) {
 		ModelAndView mav = new ModelAndView();
 		Estudiante estudiante = null;
@@ -77,7 +77,7 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/borrarEstudiante", method=RequestMethod.POST)
+	@RequestMapping(value="/busqueda", params="action=borrar")
 	public ModelAndView delete(@RequestParam(value="codigo") int id) {
 		ModelAndView mav = new ModelAndView();
 		List<Estudiante> estudiantes = null;
@@ -90,6 +90,17 @@ public class MainController {
 		}
 		mav.addObject("estudiantes", estudiantes);
 		mav.setViewName("main");
+		
+		return mav;
+	}
+	
+	//update
+	@RequestMapping(value="/busqueda", params="action=actualizar")
+	public ModelAndView update(@RequestParam(value="codigo") int id) {
+		ModelAndView mav = new ModelAndView();
+		Estudiante estudiante = estudianteService.findOne(id);
+		mav.addObject("estudiante", estudiante);
+		mav.setViewName("mod");
 		
 		return mav;
 	}
