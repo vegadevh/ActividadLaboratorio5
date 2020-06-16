@@ -71,7 +71,7 @@ public class MainController {
 				e.printStackTrace();
 			}
 			mav.addObject("estudiantes", estudiantes);
-			mav.setViewName("lsitaEstudiantes");
+			mav.setViewName("listaEstudiantes");
 		}
 		
 		return mav;
@@ -102,4 +102,23 @@ public class MainController {
 		
 		return mav;
 	}
+	
+	@GetMapping(value="/filtrar")
+	public ModelAndView filtro(@RequestParam(value="nombre") String cadena) {
+		ModelAndView mav = new ModelAndView();
+		List<Estudiante> estudiantes = null;
+		
+		try {
+			estudiantes = estudianteService.filtrarPor(cadena);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		mav.addObject("estudiantes", estudiantes);
+		mav.setViewName("main");
+		
+		return mav;
+	}
+	
+	//update
+	
 }
