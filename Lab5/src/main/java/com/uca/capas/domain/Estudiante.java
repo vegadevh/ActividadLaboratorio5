@@ -25,20 +25,20 @@ public class Estudiante {
 	@Size(message="El campo no debe contener mas de 30 caractares", max=30)
 	@NotEmpty(message="Este campo no puede estar vacio")
 	@Column(name="nombre")
-	private String Nombre;
+	private String nombre;
 	
 	@Size(message="El campo no debe contener mas de 30 caractares", max=30)
 	@NotEmpty(message="Este campo no puede estar vacio")
 	@Column(name="apellido")
-	private String Apellido;
+	private String apellido;
 	
 	@NotNull(message="Este campo no puede estar vacio")
 	@Min(value=18, message="No puede ser menor a 18")
 	@Column(name="edad")
-	private Integer Edad;
+	private Integer edad;
 	
 	@Column(name="estado")
-	private Boolean Estado;
+	private Boolean estado;
 	
 	public Estudiante() {
 		
@@ -47,39 +47,48 @@ public class Estudiante {
 	public Integer getCodigoEstudiante() {
 		return codigoEstudiante;
 	}
+
 	public void setCodigoEstudiante(Integer codigoEstudiante) {
 		this.codigoEstudiante = codigoEstudiante;
 	}
+
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
+
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
+
 	public String getApellido() {
-		return Apellido;
-	}
-	public void setApellido(String apellido) {
-		Apellido = apellido;
-	}
-	public Integer getEdad() {
-		return Edad;
-	}
-	public void setEdad(Integer edad) {
-		Edad = edad;
-	}
-	public Boolean getEstado() {
-		return Estado;
-	}
-	public void setEstado(Boolean estado) {
-		Estado = estado;
+		return apellido;
 	}
 	
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
 	//Delegate
 	public String getEstadoDelegate() {
-		if(this.Estado==null) return "";
+		if(this.estado==null) return "";
 		else {
-			return Estado ==true ? "Activo":"Inactivo";
+			return estado ==true ? "Activo":"Inactivo";
 		}
 	}
 	
